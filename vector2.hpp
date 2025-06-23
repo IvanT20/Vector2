@@ -68,9 +68,36 @@ public:
      * @param vecTwo The Vec2 that will be used to add to the first Vec2.
      * @return A Vec2 with the added value.
      */
-    friend inline Vec2 operator+(Vec2& vecOne, const Vec2& vecTwo)
+    friend inline Vec2 operator+(Vec2 vecOne, const Vec2& vecTwo)
     {
         vecOne += vecTwo;
+        return vecOne;
+    }
+
+    /**
+     * @brief Subtracts this Vec2 with another Vec2 and stores it into the first Vec2.
+     * 
+     * @param vecTwo The Vec2 that will be used to subtract the first Vec2. 
+     * @return The original Vec2 with the subtracted value. 
+     */
+    inline Vec2& operator-=(const Vec2& vecTwo)
+    {
+        this->x -= vecTwo.x;
+        this->y -= vecTwo.y;
+
+        return *this;
+    }
+
+    /**
+     * @brief Subtracts this Vec2 with another Vec2. 
+     * 
+     * @param vecOne The Vec2 that will be subtracted from. 
+     * @param vecTwo The Vec2 that will be use to subtract the first Vec2. 
+     * @return A Vec2 with the subtracted value. 
+     */
+    friend inline Vec2 operator-(Vec2 vecOne, const Vec2 vecTwo)
+    {
+        vecOne -= vecTwo;
         return vecOne;
     }
 
