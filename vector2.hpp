@@ -5,10 +5,8 @@
 #include <algorithm>
 
 
-class Vec2
+struct Vec2
 {
-
-public:
 
     double x = 0;
     double y = 0;
