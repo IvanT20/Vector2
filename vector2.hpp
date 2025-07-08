@@ -20,7 +20,7 @@ struct Vec2
      * @param vecTwo The Vec2 to be compared against.
      * @return True if the vectors are equal within an epsilon threshold; false otherwise.
      */
-    inline bool operator==(const Vec2& vecTwo) const
+    bool operator==(const Vec2& vecTwo) const
     {
         constexpr double relEpsilon = 1e-8;
         constexpr double absEpsilon = 1e-12; // Maximum tolerance allowed to compare floats
@@ -40,7 +40,7 @@ struct Vec2
      * @param vecTwo The Vec2 to be compared against.
      * @return True if the two vectors are not equal; false otherwise.
      */
-    inline bool operator!=(const Vec2& vecTwo) const
+    bool operator!=(const Vec2& vecTwo) const
     {
         return !(*this == vecTwo);
     }
@@ -51,7 +51,7 @@ struct Vec2
      * @param vecTwo The Vec2 that will be used to add to the first Vec2.
      * @return The original Vec2 with the added value.
      */
-    inline Vec2& operator+=(const Vec2& vecTwo)
+    Vec2& operator+=(const Vec2& vecTwo)
     {
         this->x += vecTwo.x;
         this->y += vecTwo.y;
@@ -66,7 +66,7 @@ struct Vec2
      * @param vecTwo The Vec2 that will be used to add to the first Vec2.
      * @return A Vec2 with the added value.
      */
-    [[nodiscard]] friend inline Vec2 operator+(Vec2 vecOne, const Vec2& vecTwo)
+    [[nodiscard]] friend Vec2 operator+(Vec2 vecOne, const Vec2& vecTwo)
     {
         vecOne += vecTwo;
         return vecOne;
@@ -78,7 +78,7 @@ struct Vec2
      * @param vecTwo The Vec2 that will be used to subtract the first Vec2.
      * @return The original Vec2 with the subtracted value.
      */
-    inline Vec2& operator-=(const Vec2& vecTwo)
+    Vec2& operator-=(const Vec2& vecTwo)
     {
         this->x -= vecTwo.x;
         this->y -= vecTwo.y;
@@ -93,7 +93,7 @@ struct Vec2
      * @param vecTwo The Vec2 that will be use to subtract the first Vec2.
      * @return A Vec2 with the subtracted value.
      */
-    [[nodiscard]] friend inline Vec2 operator-(Vec2 vecOne, const Vec2& vecTwo)
+    [[nodiscard]] friend Vec2 operator-(Vec2 vecOne, const Vec2& vecTwo)
     {
         vecOne -= vecTwo;
         return vecOne;
@@ -105,7 +105,7 @@ struct Vec2
      * @attention This function does not check if the components of Vec2 are 0 before normalizing.
      * @return The original Vec2 normalized.
      */
-    inline Vec2& normalize()
+    Vec2& normalize()
     {
         double magnitude = this->length();
         this->x /= magnitude;
@@ -118,7 +118,7 @@ struct Vec2
      *
      * @return The length/magnitude of this Vec2.
      */
-    [[nodiscard]] inline double length() const
+    [[nodiscard]] double length() const
     {
         return std::sqrt(this->x * this->x + this->y * this->y);
     }
